@@ -1,0 +1,50 @@
+
+Create keyspace proyectoalma with replication={'class':'SimpleStrategy', 'replication_factor':1};
+Use proyectoalma;
+
+CREATE TABLE movimientos(MovConId varchar,
+EmpId varchar,
+EmpRut varchar,
+EmpRazonSocial varchar,
+CreCodigo varchar,
+CreNombre varchar,
+CtaCodigo varchar,
+CtaNombre varchar,
+FechaIngreso timestamp,
+PerId varchar,
+SisCodOri varchar,
+Id_Proceso_Negocio varchar,
+OpeCod varchar,
+OpeGlosa varchar,
+TcoIdCbte varchar,
+TcoGlosa varchar,
+ComNumeroCbte varchar,
+CabOpeNumero varchar,
+ConEstGlosa varchar,
+MovConMontoLocalDebe int,
+MovConMontoLocalHaber int,
+SaldoLocal int,
+MovConMontoConvDebe float,
+MovConMontoConvHaber float,
+MovConNumero varchar,
+TdoId varchar,
+TdoGlosa varchar,
+EntRut varchar,
+EntRazonSocial varchar,
+pTprId varchar,
+PryNumero varchar,
+PryGlosa varchar,
+CdiCodigo varchar,
+CdiGlosa varchar,
+CfiCodigo varchar,
+CfiGlosa varchar,
+CabOpeDigUsuario varchar,
+CabOpeActUsuario varchar,
+pCabOpeId string,
+PRIMARY KEY(CtaNombre, TcoGlosa, MovConId)
+);
+
+COPY movimientos FROM 'C:\Users\Usuario\Desktop\U\A y P masivo de datos\Proyecto\BBDD limpia\Mayor1CSV.csv' WITH HEADER = true AND DELIMITER = ';';
+COPY movimientos FROM 'C:\Users\Usuario\Desktop\U\A y P masivo de datos\Proyecto\BBDD limpia\Mayor2CSV.csv' WITH HEADER = true AND DELIMITER = ';';
+
+

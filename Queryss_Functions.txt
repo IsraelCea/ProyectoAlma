@@ -1,0 +1,17 @@
+#Ejemplo timestamp
+
+Wed Apr 22 04:41:00 CLST 2015
+
+#entrega el año
+CREATE OR REPLACE FUNCTION year (input timestamp) RETURNS NULL ON NULL INPUT RETURNS TEXT LANGUAGE java AS 'return input.toString().substring(25,29);';
+
+#entrega el mes
+CREATE OR REPLACE FUNCTION month (input timestamp) RETURNS NULL ON NULL INPUT RETURNS TEXT LANGUAGE java AS 'return input.toString().substring(4,7);';
+
+
+select month(fechaingreso) as month from movimientos limit 10;
+select year(fechaingreso) as year from movimientos limit 10; 
+
+select ctanombre, count(ctanombre) from movimientos where ctanombre='Cuentas Por Pagar RR.HH' and fechaingreso<'2015-01-01' limit 15 allow filtering;
+
+CREATE INDEX mov_fecha ON proyectoalma.movimientos (fechaingreso);
